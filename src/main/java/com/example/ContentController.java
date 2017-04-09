@@ -1,7 +1,10 @@
 package com.example;
 
+import entity.Content;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import repository.ContentRepository;
+
 
 /**
  * Created by 80561 on 2017/3/17.

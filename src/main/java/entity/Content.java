@@ -1,10 +1,11 @@
-package com.example;
+package entity;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 
 /**
@@ -21,6 +22,20 @@ public class Content {
     private String author;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date time;
+
+    @ManyToOne
+    private User auto;
+
+    @ManyToMany(mappedBy = "contents",fetch = FetchType.LAZY)
+    private List<Tag> tags=new ArrayList<>();
+
+    public User getAuto() {return auto;}
+
+    public void setAuto(User auto) {this.auto = auto;}
+
+    public List<Tag> getTags() {return tags;}
+
+    public void setTags(List<Tag> tags) {this.tags = tags;}
 
     public long getId() {
         return id;
